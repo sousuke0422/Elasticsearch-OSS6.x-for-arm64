@@ -19,7 +19,7 @@ RUN chmod -vR 755 /etc/elasticsearch/; \
     chmod -vR 755 /var/lib/elasticsearch/; \
     chmod -vR 755 /usr/share/elasticsearch/;
 
-VOLUME [ "/usr/share/elasticsearch/data" ]
+VOLUME [ "/usr/share/elasticsearch/data", "/etc/elasticsearch/" ]
 #EXPOSE 9200
 
 CMD [ "/etc/init.d/elasticsearch", "start" ]
