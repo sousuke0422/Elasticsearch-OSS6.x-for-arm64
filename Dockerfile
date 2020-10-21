@@ -17,7 +17,10 @@ RUN wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-
 
 RUN chmod -vR 755 /etc/elasticsearch/; \
     chmod -vR 755 /var/lib/elasticsearch/; \
-    chmod -vR 755 /usr/share/elasticsearch/;
+    chmod -vR 755 /usr/share/elasticsearch/; \
+    chown -vR elasticsearch:elasticsearch /etc/elasticsearch/; \
+    chown -vR elasticsearch:elasticsearch /var/lib/elasticsearch/; \
+    chown -vR elasticsearch:elasticsearch /usr/share/elasticsearch/;
 
 VOLUME [ "/usr/share/elasticsearch/data", "/etc/elasticsearch/" ]
 #EXPOSE 9200
