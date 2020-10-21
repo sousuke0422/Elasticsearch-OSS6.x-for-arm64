@@ -26,4 +26,4 @@ RUN chmod -vR 755 /etc/elasticsearch/; \
 #EXPOSE 9200
 VOLUME [ "/usr/share/elasticsearch/data" ]
 
-CMD [ "/etc/init.d/elasticsearch", "start" ]
+CMD [ "/usr/share/elasticsearch/bin/elasticsearch", "-p", "/var/run/elasticsearch/elasticsearch.pid" ]
