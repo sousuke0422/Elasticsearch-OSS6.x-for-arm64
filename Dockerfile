@@ -1,5 +1,6 @@
 FROM ubuntu:focal
 
+ENV ES_JAVA_OPTS="-Xms512m -Xmx512m"
 
 RUN apt update; \
     apt install -y wget software-properties-common; \
@@ -17,5 +18,8 @@ RUN wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-
 RUN chmod -vR 755 /etc/elasticsearch/; \
     chmod -vR 755 /var/lib/elasticsearch/; \
     chmod -vR 755 /usr/share/elasticsearch/;
+
+VOLUME [ "/usr/share/elasticsearch/data" ]
+#EXPOSE 9200
 
 CMD [ "/etc/init.d/elasticsearch", "start" ]
