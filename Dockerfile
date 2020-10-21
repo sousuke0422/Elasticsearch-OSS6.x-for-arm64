@@ -22,6 +22,10 @@ RUN chmod -vR 755 /etc/elasticsearch/; \
     chown -vR elasticsearch:elasticsearch /var/lib/elasticsearch/; \
     chown -vR elasticsearch:elasticsearch /usr/share/elasticsearch/;
 
+ENV ES_HOME=/usr/share/elasticsearch
+ENV ES_PATH_CONF=/etc/elasticsearch
+ENV PID_DIR=/var/run/elasticsearch
+
 #VOLUME [ "/usr/share/elasticsearch/data", "/etc/elasticsearch/" ]
 #EXPOSE 9200
 VOLUME [ "/usr/share/elasticsearch/data" ]
