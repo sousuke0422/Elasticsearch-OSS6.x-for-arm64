@@ -22,7 +22,8 @@ RUN chmod -vR 755 /etc/elasticsearch/; \
     chown -vR elasticsearch:elasticsearch /var/lib/elasticsearch/; \
     chown -vR elasticsearch:elasticsearch /usr/share/elasticsearch/;
 
-VOLUME [ "/usr/share/elasticsearch/data", "/etc/elasticsearch/" ]
+#VOLUME [ "/usr/share/elasticsearch/data", "/etc/elasticsearch/" ]
 #EXPOSE 9200
+VOLUME [ "/usr/share/elasticsearch/data" ]
 
 CMD [ "/etc/init.d/elasticsearch", "start" ]
