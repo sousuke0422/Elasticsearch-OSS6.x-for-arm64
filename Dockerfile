@@ -15,6 +15,9 @@ RUN wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-oss-
     rm -f elasticsearch-oss-6.4.2.deb; \
     apt clean;
 
+RUN sed -e 's/#network.host: 192.168.0.1/network.host: 0.0.0.0/' -i /etc/elasticsearch/elasticsearch.yml; \
+    sed -e 's/#http.port: 9200/http.port: 9200/' -i /etc/elasticsearch/elasticsearch.yml;
+
 RUN chmod -vR 755 /etc/elasticsearch/; \
     chmod -vR 755 /var/lib/elasticsearch/; \
     chmod -vR 755 /usr/share/elasticsearch/; \
