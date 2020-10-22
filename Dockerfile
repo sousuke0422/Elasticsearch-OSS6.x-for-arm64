@@ -30,4 +30,6 @@ ENV PID_DIR=/var/run/elasticsearch
 #EXPOSE 9200
 VOLUME [ "/usr/share/elasticsearch/data" ]
 
+USER elasticsearch
+
 CMD [ "/usr/share/elasticsearch/bin/elasticsearch", "-p", "/var/run/elasticsearch/elasticsearch.pid" ]
